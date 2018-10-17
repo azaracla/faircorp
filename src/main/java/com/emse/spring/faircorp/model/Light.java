@@ -16,6 +16,10 @@ public class Light {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "roomId")
+    private Room room;
+
     public Light() {
     }
 

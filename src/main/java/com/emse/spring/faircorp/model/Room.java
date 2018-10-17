@@ -1,18 +1,22 @@
 package com.emse.spring.faircorp.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Room {
     @Id
     @GeneratedValue
-    private long Id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
     private Integer floor;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
+    private Set<Light> lights;
 
     public Room() {
     }
@@ -23,11 +27,11 @@ public class Room {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        id = id;
     }
 
     public String getName() {
