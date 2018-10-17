@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface RoomDao extends JpaRepository<Room, Long> {
+public interface RoomDao extends JpaRepository<Room, Long>, RoomDaoCustom{
 
     //@Query("select c from Room c where c.name=:name")
     //Room findByName(@Param("name") String name);
