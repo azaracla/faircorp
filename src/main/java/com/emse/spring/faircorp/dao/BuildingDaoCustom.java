@@ -6,5 +6,5 @@ import com.emse.spring.faircorp.model.Room;
 import java.util.List;
 
 public interface BuildingDaoCustom {
-    List<Light> findBuildingLights(Integer buildingId);
+    List<Light> findBuildingLights(Long buildingId);
 }

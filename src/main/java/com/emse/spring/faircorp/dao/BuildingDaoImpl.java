@@ -13,7 +13,10 @@ public class BuildingDaoImpl implements BuildingDaoCustom{
 
 
     @Override
-    public List<Light> findBuildingLights(Integer buildingId) {
-        return null;
+    public List<Light> findBuildingLights(Long buildingId) {
+        String jpql = "select lt from Light lt left join lt.room r where r.building.id = :value";
+        return em.createQuery(jpql, Light.class)
+                .setParameter("value", buildingId)
+                .getResultList();
     }
 }
