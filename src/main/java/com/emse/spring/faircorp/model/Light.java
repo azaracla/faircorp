@@ -28,6 +28,12 @@ public class Light {
         this.status = status;
     }
 
+    public Light(Room room, Integer level, Status status) {
+        this.level = level;
+        this.status = status;
+        this.room = room;
+    }
+
     public Long getId() {
         return this.id;
     }
@@ -50,5 +56,9 @@ public class Light {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Long getRoomId() {
+        return room.getId();
     }
 }

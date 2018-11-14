@@ -7,7 +7,7 @@ import java.util.Set;
 public class Room {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -18,20 +18,25 @@ public class Room {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
     private Set<Light> lights;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "buildingId")
+    private Building building;
+
     public Room() {
     }
 
-    public Room(String name, Integer floor) {
+    public Room(Building building, String name, Integer floor) {
         this.name = name;
         this.floor = floor;
+        this.building = building;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     public void setId(long id) {
-        id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -48,5 +53,13 @@ public class Room {
 
     public void setFloor(Integer floor) {
         this.floor = floor;
+    }
+
+    public Set<Light> getLights() {
+        return lights;
+    }
+
+    public Long getBuildingId() {
+        return building.getId();
     }
 }
