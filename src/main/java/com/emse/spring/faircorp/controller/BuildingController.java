@@ -18,6 +18,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RestController  // (1)
 @RequestMapping("/api/buildings") // (2)
 @Transactional // (3)
