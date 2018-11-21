@@ -19,4 +19,12 @@ public class BuildingDaoImpl implements BuildingDaoCustom{
                 .setParameter("value", buildingId)
                 .getResultList();
     }
+
+    @Override
+    public List<Room> findRooms(Long buildingId) {
+        String jpql = "select rm from Room rm where rm.building.id = :value";
+        return em.createQuery(jpql, Room.class)
+                .setParameter("value", buildingId)
+                .getResultList();
+    }
 }

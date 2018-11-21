@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BuildingDaoCustom {
     List<Light> findBuildingLights(Long buildingId);
+
+    List<Room> findRooms(Long buildingId);
 }
