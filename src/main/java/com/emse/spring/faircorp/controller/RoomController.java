@@ -42,7 +42,7 @@ public class RoomController {
         return roomDao.findById(id).map(room -> new RoomDto(room)).orElse(null);
     }
 
-    @PutMapping(path = "/{id}/switchLight")
+    @PutMapping(path = "/{id}/switch")
     public RoomDto switchStatus(@PathVariable Long id) {
         Room room = roomDao.findById(id).orElseThrow(IllegalArgumentException::new);
         Set<Light> lights = room.getLights();

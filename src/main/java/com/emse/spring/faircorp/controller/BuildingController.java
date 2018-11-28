@@ -44,7 +44,7 @@ public class BuildingController {
         return buildingDao.findById(id).map(building -> new BuildingDto(building)).orElse(null);
     }
 
-    @PutMapping(path = "/{id}/switchLight")
+    @PutMapping(path = "/{id}/switch")
     public RoomDto switchStatus(@PathVariable Long id) {
         Room room = roomDao.findById(id).orElseThrow(IllegalArgumentException::new);
         Set<Light> lights = room.getLights();
