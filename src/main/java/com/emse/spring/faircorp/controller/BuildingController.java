@@ -45,13 +45,13 @@ public class BuildingController {
     }
 
     @PutMapping(path = "/{id}/switch")
-    public RoomDto switchStatus(@PathVariable Long id) {
-        Room room = roomDao.findById(id).orElseThrow(IllegalArgumentException::new);
-        Set<Light> lights = room.getLights();
+    public BuildingDto switchStatus(@PathVariable Long id) {
+        Building building = buildingDao.findById(id).orElseThrow(IllegalArgumentException::new);
+        List<Light> lights = buildingDao.findBuildingLights(id);
         for (Light light : lights) {
             light.setStatus(light.getStatus() == Status.ON ? Status.OFF: Status.ON);
         }
-        return new RoomDto(room);
+        return new BuildingDto(building);
     }
 
     @PostMapping
